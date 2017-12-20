@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Contact</title>
+<link rel="stylesheet" href="css/mainstyle.css">
+<script src="myscript.js"></script>
+</head>
+
+<body id="contact">
+	<header>
+		<a href="index.html"><img src="images/cooplogofinal.svg" width="200" alt="image not found" class="logo"></a>
+		<div class="search">
+			<input type="search" placeholder="search" size="30">
+			<input type="button" value="Search" onclick="return">
+		</div>
+		<nav class="topnav">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Sales</a></li>
+				<li><a href="ec.html">Earthcrust</a></li>
+				<li><a href="contact.html" target="_blank">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<h1 class="form">Contact and Special Order Form</h1>
+	<form  action="thankyou.html" method="post" id="form">
+
+	<fieldset class="contactform">
+		<legend>Contact</legend>
+			<label for="name">Name<em>*</em></label>
+				<input id="name" type="text" placeholder="First and Last" autofocus pattern="{6,30}"><br>	
+			<label for="email">Email Address<em>*</em></label>
+				<input id="email" type="email" placeholder="contact@example.com" required><br>
+			<label for="reason">Message</label><br>
+				<textarea id="reason"></textarea><br>
+				
+			<input type="submit" value="Submit" id="submit">
+			<button type="reset" id="reset" onclick="myFunction()">Reset</button>
+		
+	</fieldset>
+	</form>
+		
+	<form>
+	<fieldset class="special">
+		<legend>Special Order Form</legend>
+			<p class="current">Only current members receive discounts on special orders.</p>
+			<label for="member">Member Number</label>
+				<input id="member" type="number" placeholder="#####"><br>
+			<label for="name">Name<em>*</em></label>
+				<input id="name2" type="text" placeholder="First and Last" pattern="{6,30}" required><br>
+			<label for="date">Current Date<em>*</em></label>
+				<input id="date" name="date"><br>
+			<label for="phone">Phone Number<em>*</em></label>
+				<input id="phone" type="number" placeholder="(123) 456-7891" required><br>
+			<label for="brand">Brand</label>
+				<input id="brand" type="text"><br>
+			<label for="product">Name of Product<em>*</em></label>
+				<input id="product" type="text" required><br>
+			<label for="size">Size<em>*</em></label>
+				<input id="size" type="number" required><br>
+			<label for="case">Quantity<em>*</em></label>
+				<input id="case" type="number" required><br>
+		
+			<label for="button1">Order Type:</label><br>
+				<input type="radio" name="orderType" value="special order" checked id="button1"> Please Special Order<br>
+  				<input type="radio" name="orderType" value="back" id="button2"> Please contact customer when product is back in stock<br>
+  				<input type="radio" name="orderType" value="store" id="button3"> Please contact customer with price and minimum order <br>
+  			<label for="notes">Additional Notes</label>
+				<textarea id="notes"></textarea><br>
+					
+				<input type="submit" value="Submit" id="submit2">
+				<button type="reset" id="reset2" onclick="myFunction()">Reset</button>
+	</fieldset>
+	</form>
+	
+	<footer>
+	<nav class="bottomnav">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Sales</a></li>
+			<li><a href="ec.html">Earthcrust</a></li>
+			<li><a href="contact.html">Contact</a></li>
+		</ul>
+	</nav>
+	<address>Address: 633 Second Street<br>Stevens Point, WI 54481</address>
+	<p>Hours: Monday - Friday: 7am-8pm. <br>
+	Saturday - Sunday: 8am-6pm. <br> Phone: 715.341.1555 <br> Email: info@spacoop.com</p>
+	<br><p>Copyright 2017</p>
+	
+</footer>
+	
+<script>
+$(function()
+{
+    $("#form").validate(
+      {
+        rules: 
+        {
+          name: 
+          {
+            required: true,
+            minlength: 6
+          },
+          email: 
+          {
+            required: true,
+            email: true,
+          },
+          reason:
+          {
+            required: true,
+            maxlength:[2,256]
+          },
+        }
+      });	
+	document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = 'thankyou.html';
+}, false );
+});
+
+</script>
+	
+<script>
+  function checkPassword(str)
+  {
+    // at least one number, one lowercase and one uppercase letter
+    // at least six characters
+    var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    return re.test(str);
+  }
+}       
+</script>	
+ 	
+ <script>
+  	document.getElementById("date").readOnly = true;
+	document.getElementById("date").value = Date();
+</script>
+										
+<script>
+ 	 <script type="text/javascript">
+function myFunction() {
+	
+    if (confirm("Are you sure you want to reset fields?") == true) {
+		document.getElementById("id").value = "";
+		document.getElementById("password").value = "";
+		document.getElementById("name").value = "";
+		document.getElementById("email").value = "";
+		document.getElementById("reason").value = "";
+		document.getElementById("id").focus();
+    }
+}				
+</script>
+</body>
+</html>
